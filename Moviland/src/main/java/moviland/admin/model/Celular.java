@@ -1,6 +1,9 @@
 package moviland.admin.model;
 
 public class Celular {
+	int ID;
+
+	
 	String Marca;
 	String Nombre;
 	int Stock;
@@ -12,9 +15,10 @@ public class Celular {
 	String imgLink;
 	float Precio;
 	
-	public Celular(String marca, String nombre, int stock, float pantalla, float bateria, String sO, float camara,
-			int almacenamiento, String imgLink, float precio) {
+	public Celular(int iD, String marca, String nombre, int stock, float pantalla, float bateria, String sO,
+			float camara, int almacenamiento, String imgLink, float precio) {
 		super();
+		ID = iD;
 		Marca = marca;
 		Nombre = nombre;
 		Stock = stock;
@@ -30,6 +34,13 @@ public class Celular {
 	public Celular() {
 	};
 	
+
+	public int getID() {
+		return ID;
+	}
+	public void setID(int iD) {
+		ID = iD;
+	}
 	public String getMarca() {
 		return Marca;
 	}

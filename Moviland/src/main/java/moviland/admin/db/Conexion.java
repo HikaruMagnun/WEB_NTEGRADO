@@ -1,4 +1,4 @@
-package moviland.admin.conexion;
+package moviland.admin.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

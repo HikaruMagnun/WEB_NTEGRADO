@@ -2,7 +2,7 @@ package moviland.admin.prueba;
 
 import java.sql.Connection;
 
-import moviland.admin.conexion.Conexion;
+import moviland.admin.db.Conexion;
 
 public class PruebaBD01 {
 
