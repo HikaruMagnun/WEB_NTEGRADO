@@ -18,7 +18,7 @@ public class CelularDaoImplement implements CelularDao {
 	}
 	@Override 
 	public List<Celular> ListarCelulares(){
-		List<Celular> = new ArrayList<>();
+		List<Celular> celulares = new ArrayList<>();
 		try {
 			String sql = "select * from \"Celulares\";";
 			Statement st = db.createStatement();
@@ -36,10 +36,33 @@ public class CelularDaoImplement implements CelularDao {
 				cel.setAlmacenamiento(rs.getInt("Almacenamiento(GB)"));
 				cel.setImgLink(rs.getString("img(link)"));
 				cel.setPrecio(rs.getFloat("Precio"));
+				celulares.add(cel);
 			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e.getMessage());
+			System.out.println("ERROR en la tabla 'Celulares'");
 		}
+		return celulares;
+	}
+	@Override
+	public void insertarCelular(Celular celular) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void eliminarCelular(Celular celular) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void editarCelular(Celular celular) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public Celular BuscarCelulares() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
