@@ -14,7 +14,7 @@
 		aria-label="main navigation">
 		<div class="navbar-brand">
 			<a class="navbar-item" href="https://bulma.io"> <img
-				src="https://lh3.googleusercontent.com/u/0/drive-viewer/AITFw-xLWDpYDbkZbHXLiDfFX-PSMOMPaMj8JPZhpSIA7XPIMMQsAReVmn_KxgffDZtKONWPXHvxZrHeMCCwxqjIkRECF3nowA=w1366-h653" />
+				src="img/icon.png" />
 			</a> <a role="button" class="navbar-burger" aria-label="menu"
 				aria-expanded="false" data-target="navbarBasicExample">
 				<span aria-hidden="true"></span> <span aria-hidden="true"></span> <span
