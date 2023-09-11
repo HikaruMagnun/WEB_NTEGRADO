@@ -1,4 +1,4 @@
-package moviland.admincontroller;
+package moviland.admin.controller;
 
 import java.io.IOException;
 
