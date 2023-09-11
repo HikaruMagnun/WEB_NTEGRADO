@@ -54,19 +54,17 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th><abbr title="Position">Pos</abbr></th>
-				<th>ID</th>
-				<th><abbr title="Played">Marca</abbr></th>
-				<th><abbr title="Won">Nombre</abbr></th>
-				<th><abbr title="Drawn">D</abbr></th>
-				<th><abbr title="Lost">Stock</abbr></th>
-				<th><abbr title="Goals for">Pantalla(In)</abbr></th>
-				<th><abbr title="Goals against">Bateria(mAh)</abbr></th>
-				<th><abbr title="Goal difference">S.O.</abbr></th>
-				<th><abbr title="Points">Camara (MP)</abbr></th>
-				<th>Almacnamiento</th>
-				<th>img(link)</th>
-				<th>Precio</th>
+				<th><abbr title="Position">ID</abbr></th>
+				<th>MARCA</th>
+				<th><abbr title="Played">Nombre</abbr></th>
+				<th><abbr title="Won">Stock</abbr></th>
+				<th><abbr title="Drawn">Pantalla</abbr></th>
+				<th><abbr title="Lost">Batería</abbr></th>
+				<th><abbr title="Goals for">S.O.</abbr></th>
+				<th><abbr title="Goals against">Camara</abbr></th>
+				<th><abbr title="Goal difference">Imagen</abbr></th>
+				<th><abbr title="Points">Precio</abbr></th>
+				
 			</tr>
 		</thead>
 

@@ -2,17 +2,21 @@ package moviland.admin.controller;
 
 import java.io.IOException;
 
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import moviland.admin.dao.CelularDaoImplement;
 
+@WebServlet("/AdminController")
+
 public class AdminController extends HttpServlet{
 	
-	public static final String catalogo = "/catalogo.jsp";
+	public static final String catalogo = "catalogo.jsp";
 	HttpSession session;
 	
 	

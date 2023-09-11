@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet">
 </head>
 <body>
 	<nav class="navbar is-black" role="navigation" aria-label="main navigation">
@@ -26,7 +27,7 @@
         Inicio
       </a>
 
-      <a class="navbar-item" href = "AdminController">
+      <a class="navbar-item" href = "AdminController?utilidad=mostrar">
         Catálogo
       </a>
 
