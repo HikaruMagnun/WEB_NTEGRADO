@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List" %>
-<%@page import="moviland.admin.model.Celular" %>
+<%@page import="java.util.List"%>
+<%@page import="moviland.admin.model.Celular"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +16,8 @@
 			<a class="navbar-item" href="https://bulma.io"> <img
 				src="img/icon.png" />
 			</a> <a role="button" class="navbar-burger" aria-label="menu"
-				aria-expanded="false" data-target="navbarBasicExample">
-				<span aria-hidden="true"></span> <span aria-hidden="true"></span> <span
+				aria-expanded="false" data-target="navbarBasicExample"> <span
+				aria-hidden="true"></span> <span aria-hidden="true"></span> <span
 				aria-hidden="true"></span>
 			</a>
 		</div>
@@ -64,47 +64,30 @@
 				<th><abbr title="Goals against">Camara</abbr></th>
 				<th><abbr title="Goal difference">Imagen</abbr></th>
 				<th><abbr title="Points">Precio</abbr></th>
-				
+				<th colspan="2"><abbr>Opciones</abbr></th>
+
 			</tr>
 		</thead>
 
 		<tbody>
 			<%
-        List<Celular> celulares = (List)request.getSession().getAttribute("celulares");
-          for(Celular cel:celulares){
-            %>
+			List<Celular> celulares = (List) request.getSession().getAttribute("celulares");
+			for (Celular cel : celulares) {
+			%>
 
 			<tr>
-				<td>
-					<%=cel.getID()%>
-				</td>
-				<td>
-					<%= cel.getMarca() %>
-				</td>
-				<td>
-					<%= cel.getNombre() %>
-				</td>
-				<td>
-					<%= cel.getStock() %>
-				</td>
-				<td>
-					<%= cel.getPantalla() %>
-				</td>
-				<td>
-					<%= cel.getBateria() %>
-				</td>
-				<td>
-					<%= cel.getSO() %>
-				</td>
-				<td>
-					<%= cel.getCamara() %>
-				</td>
-				<td>
-					<%= cel.getImgLink() %>
-				</td>
-				<td>
-					<%= cel.getPrecio() %>
-				</td>
+				<td><%=cel.getID()%></td>
+				<td><%=cel.getMarca()%></td>
+				<td><%=cel.getNombre()%></td>
+				<td><%=cel.getStock()%></td>
+				<td><%=cel.getPantalla()%></td>
+				<td><%=cel.getBateria()%></td>
+				<td><%=cel.getSO()%></td>
+				<td><%=cel.getCamara()%></td>
+				<td><%=cel.getImgLink()%></td>
+				<td><%=cel.getPrecio()%></td>
+				<td><a class="btn btn-success" href="CursoController?accion=editar&codigo=<%=asig.getCodigo()%>">Editar</a></td>
+   				<td><a class="btn btn-danger" href="CursoController?accion=eliminar&codigo=<%=asig.getCodigo()%>">Eliminar</a></td>
 			</tr>
 			<% } %>
 		</tbody>
