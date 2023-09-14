@@ -1,6 +1,7 @@
 package moviland.admin.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -60,11 +61,30 @@ public class CelularDaoImplement implements CelularDao {
 		
 	}
 	@Override
-	public Celular BuscarCelulares() {
+	public Celular BuscarCelulares(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Celular cel=new Celular();
+		return cel;
 	}
-	
-	
-	
+	@Override
+	public void darBaja(int id) {
+		// TODO Auto-generated method stub
+		try {
+	   		 String sql="DELETE FROM \"Celulares\" WHERE \"ID\" = ? ;";
+	   		 //Preparar para procesar la sentencia sql
+	   		 PreparedStatement ps = db.prepareStatement(sql);
+
+	   		 ps.setInt(1,id);
+	   		 //Ejecutar la sentencia sql
+	   		 ps.executeUpdate();
+	   		 ps.close();
+	   	 } catch (Exception e) {
+	   		 System.err.println("Error al eliminar datos: "+e.getMessage());
+	   	 }
+	}
+
 }
+	
+	
+	
+
