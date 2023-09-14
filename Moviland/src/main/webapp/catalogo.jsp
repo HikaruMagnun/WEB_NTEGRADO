@@ -95,5 +95,9 @@
 			<% } %>
 		</tbody>
 	</table>
+	<div class="botonAgregarProducto" style="margin-left: 30%; margin-right: 30%; margin-top: 5%;">
+		<button class="button is-medium is-fullwidth is-link is-rounded" href="AdminController?utilidad=insertar">Agregar un Producto</button>
+	</div>
+	
 </body>
 </html>

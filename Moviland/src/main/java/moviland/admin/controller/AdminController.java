@@ -163,6 +163,8 @@ public class AdminController extends HttpServlet {
 			redireccion = catalogo;
 			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 			request.forward(solicitud, respuesta);
+		} else if ((form.equals("insertar"))) {
+			
 		}
 	}
 
