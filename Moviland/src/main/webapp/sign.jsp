@@ -26,7 +26,7 @@
              
             <button type="submit" class="registro-button">Registrarse</button>
         </form>
-        <p>Â¿Ya tienes una cuenta? <a href="login.php">Iniciar Sesion</a></p>
+        <p>¿Ya tienes una cuenta? <a href="AdminController?utilidad=login">Iniciar Sesion</a></p>
     </div>
 </body>
 </html>

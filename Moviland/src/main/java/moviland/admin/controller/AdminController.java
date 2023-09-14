@@ -74,6 +74,25 @@ public class AdminController extends HttpServlet {
 			redireccion = login;
 		} else if (utilidad.equalsIgnoreCase("sign")) {
 			redireccion = sign;
+		}else if ((utilidad.equalsIgnoreCase("deslogear"))) {
+
+			String nombreCookie = "user";
+
+			Cookie cookieEliminar = new Cookie(nombreCookie, "");
+			cookieEliminar.setMaxAge(0);
+
+			respuesta.addCookie(cookieEliminar);
+			 try {
+				Thread.sleep(1000);
+				redireccion = index;
+				RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
+				request.forward(solicitud, respuesta);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}
 		RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 		request.forward(solicitud, respuesta);
@@ -90,16 +109,16 @@ public class AdminController extends HttpServlet {
 			usuario.setContraseña(solicitud.getParameter("password"));
 			usuario = dao.validar(usuario);
 			if (usuario != null) {
-				Cookie cookie = new Cookie("user", usuario.getNombre());
+				String nombreUsuario = usuario.getNombre().replace(" ", ""); // Eliminar espacios en blanco
+				Cookie cookie = new Cookie("user", nombreUsuario);
 				System.out.println(cookie.getValue());
+				respuesta.addCookie(cookie);
 				redireccion = index;
 				RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 				request.forward(solicitud, respuesta);
 			} else {
 
-				String mensajeDeError = "<script>\r\n"
-						+ "      mostrarError();\r\n"
-						+ "    </script>";
+				String mensajeDeError = "<script>\r\n" + "      mostrarError();\r\n" + "    </script>";
 				respuesta.getWriter().write(mensajeDeError);
 
 				redireccion = login;
@@ -128,7 +147,7 @@ public class AdminController extends HttpServlet {
 			redireccion = catalogo;
 			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 			request.forward(solicitud, respuesta);
-		}
+		} 
 	}
 
 }
