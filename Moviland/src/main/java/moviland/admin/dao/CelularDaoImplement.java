@@ -46,97 +46,78 @@ public class CelularDaoImplement implements CelularDao {
 		}
 		return celulares;
 	}
-	
+
 	private String obtenerMarcaOriginal(int id) {
-	    String marcaOriginal = null;
-	    try {
-	        String sql = "SELECT \"Marca\" FROM public.\"Celulares\" WHERE \"ID\" = ? ;";
-	        PreparedStatement ps = db.prepareStatement(sql);
-	        ps.setInt(1, id);
-	        ResultSet rs = ps.executeQuery();
-	        
-	        if (rs.next()) {
-	            marcaOriginal = rs.getString("Marca");
-	        }
-	        
-	        rs.close();
-	        ps.close();
-	    } catch (Exception e) {
-	        System.out.println("Error al obtener la marca original: " + e.getMessage());
-	    }
-	    
-	    return marcaOriginal;
+		String marcaOriginal = null;
+		try {
+			String sql = "SELECT \"Marca\" FROM public.\"Celulares\" WHERE \"ID\" = ? ;";
+			PreparedStatement ps = db.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				marcaOriginal = rs.getString("Marca");
+			}
+
+			rs.close();
+			ps.close();
+		} catch (Exception e) {
+			System.out.println("Error al obtener la marca original: " + e.getMessage());
+		}
+
+		return marcaOriginal;
 	}
 
 	@Override
 	public void insertarCelular(Celular celular) {
 		try {
-	        String marca = celular.getMarca();
-	        // Verificar si la marca es "Huawei" o "Samsung"
-	        if (!marca.equals("Huawei") && !marca.equals("Samsung")) {
-	            System.out.println("Marca no válida: " + marca);
-	            // Aquí puedes agregar un registro de error o realizar otra acción si lo deseas
-	        } else {
-	            // Consultar la marca actual en la base de datos
-	            String marcaOriginal = obtenerMarcaOriginal(celular.getID()); // Debes implementar esta función
 
-	            if (marcaOriginal == null) {
-	                System.out.println("No se encontró una marca original en la base de datos.");
-	                return; // Otra acción en caso necesario
-	            }
-
-	            if (!marca.equals(marcaOriginal)) {
-	                System.out.println("La marca no coincide con la marca original. Conservando la marca original: " + marcaOriginal);
-	                celular.setMarca(marcaOriginal);
-	            }
-
-	            // Continuar con la actualización de los demás datos
-	            String sql = "INSERT INTO \"Celulares\" (\"ID\", \"Marca\", \"Nombre\", \"Stock\",\"Pantalla(In)\",\"Bateria(mAh)\",\"S.O.\",\"Camara(MP)\",\"Almacenamiento(GB)\",\"img(link)\",\"Precio\")"
-		                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		        PreparedStatement ps = db.prepareStatement(sql);
-		        ps.setInt(1, celular.getID());
-		        ps.setString(2, celular.getMarca());
-		        ps.setString(3, celular.getNombre());
-		        ps.setInt(4, celular.getStock());
-		        ps.setFloat(5, celular.getPantalla());
-		        ps.setFloat(6, celular.getBateria());
-		        ps.setString(7, celular.getSO());
-		        ps.setFloat(8, celular.getCamara());
-		        ps.setInt(9, celular.getAlmacenamiento());
-		        ps.setString(10, celular.getImgLink());
-		        ps.setFloat(11, celular.getPrecio());
-	        }
-	    } catch (Exception e) {
-	        System.out.println("Error al insertar los datos... " + e.getMessage());
-	    }
+			String sql = "INSERT INTO \"Celulares\" (\"ID\", \"Marca\", \"Nombre\", \"Stock\",\"Pantalla(In)\",\"Bateria(mAh)\",\"S.O.\",\"Camara(MP)\",\"Almacenamiento(GB)\",\"img(link)\",\"Precio\")"
+					+ " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			PreparedStatement ps = db.prepareStatement(sql);
+			ps.setInt(1, celular.getID());
+			ps.setString(2, celular.getMarca());
+			ps.setString(3, celular.getNombre());
+			ps.setInt(4, celular.getStock());
+			ps.setFloat(5, celular.getPantalla());
+			ps.setFloat(6, celular.getBateria());
+			ps.setString(7, celular.getSO());
+			ps.setFloat(8, celular.getCamara());
+			ps.setInt(9, celular.getAlmacenamiento());
+			ps.setString(10, celular.getImgLink());
+			ps.setFloat(11, celular.getPrecio());
+			ps.execute();
+			ps.close();
+		} catch (Exception e) {
+			System.out.println("Error al insertar los datos... " + e.getMessage());
+		}
 	}
 
 	@Override
 	public void actualizar(Celular celular) {
 		try {
-			String sql= "UPDATE \"Celulares\" SET \"Marca\" = ?, \"Nombre\" = ?, \"Stock\" = ?,\"Pantalla(In)\" = ?,\"Bateria(mAh)\" = ?,\"S.O.\" = ?,\"Camara(MP)\" = ?,\"Almacenamiento(GB)\" = ?,\"img(link)\" = ?,\"Precio\" = ? WHERE \"ID\" = ? ;";
-			
+			String sql = "UPDATE \"Celulares\" SET \"Marca\" = ?, \"Nombre\" = ?, \"Stock\" = ?,\"Pantalla(In)\" = ?,\"Bateria(mAh)\" = ?,\"S.O.\" = ?,\"Camara(MP)\" = ?,\"Almacenamiento(GB)\" = ?,\"img(link)\" = ?,\"Precio\" = ? WHERE \"ID\" = ? ;";
+
 			PreparedStatement ps = db.prepareStatement(sql);
-	        
-	        ps.setString(1, celular.getMarca());
-	        ps.setString(2, celular.getNombre());
-	        ps.setInt(3, celular.getStock());
-	        ps.setFloat(4, celular.getPantalla());
-	        ps.setFloat(5, celular.getBateria());
-	        ps.setString(6, celular.getSO());
-	        ps.setFloat(7, celular.getCamara());
-	        ps.setInt(8, celular.getAlmacenamiento());
-	        ps.setString(9, celular.getImgLink());
-	        ps.setFloat(10, celular.getPrecio());
-	        ps.setInt(11, celular.getID());
-	        ps.executeUpdate();
-	        ps.close();
-        
+
+			ps.setString(1, celular.getMarca());
+			ps.setString(2, celular.getNombre());
+			ps.setInt(3, celular.getStock());
+			ps.setFloat(4, celular.getPantalla());
+			ps.setFloat(5, celular.getBateria());
+			ps.setString(6, celular.getSO());
+			ps.setFloat(7, celular.getCamara());
+			ps.setInt(8, celular.getAlmacenamiento());
+			ps.setString(9, celular.getImgLink());
+			ps.setFloat(10, celular.getPrecio());
+			ps.setInt(11, celular.getID());
+			ps.executeUpdate();
+			ps.close();
+
 		} catch (Exception e) {
 			System.out.println("Error al actualizar los datos... " + e.getMessage());
 		}
 	}
-	
 
 	@Override
 	public void eliminarCelular(Celular celular) {

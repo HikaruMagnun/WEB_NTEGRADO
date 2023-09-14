@@ -26,6 +26,7 @@ public class AdminController extends HttpServlet {
 	public static final String sign = "sign.jsp";
 	public static final String index = "index.jsp";
 	public static final String actualizar = "ActualizarCatalogo.jsp";
+	public static final String insertar = "nuevoCelular.jsp";
 	HttpSession sesion;
 
 	public AdminController() {
@@ -60,8 +61,7 @@ public class AdminController extends HttpServlet {
 			sesion.setAttribute("celular", cel);
 			redireccion = actualizar;
 		} else if (utilidad.equalsIgnoreCase("insertar")) {
-			System.out.println("insertar");
-			sesion = solicitud.getSession();
+			redireccion = insertar;
 			// sesion.setAttribute("asignatura", null);
 			// redireccion = insertar;
 		} else if (utilidad.equalsIgnoreCase("listar")) {
@@ -158,13 +158,30 @@ public class AdminController extends HttpServlet {
 			cel.setAlmacenamiento(Integer.parseInt(solicitud.getParameter("almacenamientocel")));
 			cel.setImgLink(solicitud.getParameter("imagencel"));
 			cel.setPrecio(Float.parseFloat(solicitud.getParameter("preciocel")));
-			
+			System.out.println(cel.getMarca());
 			celular.actualizar(cel);
 			redireccion = catalogo;
 			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 			request.forward(solicitud, respuesta);
 		} else if ((form.equals("insertar"))) {
-			
+			Celular cel = new Celular();
+			cel.setID(Integer.parseInt(solicitud.getParameter("idCelular")));
+			cel.setMarca(solicitud.getParameter("marca"));
+			cel.setNombre(solicitud.getParameter("nombre"));
+			cel.setStock(Integer.parseInt(solicitud.getParameter("stockcel")));
+			cel.setPantalla(Float.parseFloat(solicitud.getParameter("pantallacel")));
+			cel.setBateria(Float.parseFloat(solicitud.getParameter("bateriacel")));
+			cel.setSO(solicitud.getParameter("socel"));
+			cel.setCamara(Float.parseFloat(solicitud.getParameter("camaracel")));
+			cel.setAlmacenamiento(Integer.parseInt(solicitud.getParameter("almacenamientocel")));
+			cel.setImgLink(solicitud.getParameter("imagencel"));
+			cel.setPrecio(Float.parseFloat(solicitud.getParameter("preciocel")));
+			celular.insertarCelular(cel);
+			sesion = solicitud.getSession();
+			sesion.setAttribute("celulares", celular.ListarCelulares());
+			redireccion = catalogo;
+			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
+			request.forward(solicitud, respuesta);
 		}
 	}
 
