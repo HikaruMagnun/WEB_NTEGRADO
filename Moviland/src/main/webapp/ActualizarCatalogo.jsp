@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@page import="moviland.admin.model.Celular" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,7 @@
 	rel="stylesheet">
 </head>
 <body>
+
 	<nav class="navbar is-black" role="navigation"
 		aria-label="main navigation">
 		<div class="navbar-brand">
@@ -50,6 +52,41 @@
 			</div>
 		</div>
 	</nav>
+			<%
+				Celular celu=(Celular)request.getSession().getAttribute("celular");
+			%>
+
+	<h1 class="text-center">Actualizar asignatura</h1>
+	<form action="CursoController?accion=actualizar" method="post">
+		
+		<!--  
+		<div class="form-group">
+			<div>
+				<label for="codigo">Código</label>
+				<input class="form-control" type="text" id="codigo" name="codigo" value="<%=curso.getCodigo()%>" readonly>
+				<input class="form-control" type="hidden" id="codigo" name="codigo" value="<%=curso.getCodigo()%>" >
+			</div>
+			<div>
+				<label for="nombre">Nombre</label>
+				<input class="form-control" type="text" id="nombre" name="nombre" value="<%=curso.getNombre()%>" >
+			</div>
+			<div>
+				<label for="horas">Horas</label>
+				<input class="form-control" type="number" id="horas" name="horas" value="<%=curso.getHoras()%>" >
+			</div>
+			<div>
+				<label for="tipo">Tipo de curso</label>
+				<input class="form-control" type="text" id="tipo" name="tipo" value="<%=curso.getTipo()%>" >
+			</div>
+			<div>
+				<label for="creditos">Creditos</label>
+				<input class="form-control" type="number" id="creditos" name="creditos" value="<%=curso.getCreditos()%>" >
+			</div>
+			<div>
+				<input class="btn btn-primary" type="submit" value="Actualizar">
+			</div>
+		</div>	
+		-->
+	</form>
 </body>
 </html>
-s

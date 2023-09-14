@@ -47,13 +47,13 @@ public class AdminController extends HttpServlet{
 			redireccion = catalogo;
 			session = solicitud.getSession();
 			// productos se asocia a dao.findAll (listarTodos)
-			session.setAttribute("asignaturas", celular.ListarCelulares());
+			session.setAttribute("celulares", celular.ListarCelulares());
 		} else if (utilidad.equalsIgnoreCase("editar")) {
 			int id = Integer.parseInt(solicitud.getParameter("codigo")) ;
 			// hacer uso del método findId
 			Celular cel = celular.BuscarCelulares(id);
 			session = solicitud.getSession();
-			session.setAttribute("asignatura", cel);
+			session.setAttribute("celular", cel);
 			redireccion = actualizar;
 		} else if (utilidad.equalsIgnoreCase("insertar")) {
 			System.out.println("insertar");
