@@ -70,13 +70,13 @@ charset=UTF-8"
 			<br />
 			<div>
 				<label for="marca">Marca del Celular</label> <input
-					class="input is-primary" type="text" placeholder="MARCA"
+					class="input is-primary" type="text" id="marca" name="marca" placeholder="MARCA"
 					value="<%=celu.getMarca()%>" />
 			</div>
 			<br />
 			<div>
 				<label for="nombre">Nombre del Celular</label> <input
-					class="input is-primary" type="text" placeholder="NOMBRE / MODELO"
+					class="input is-primary" type="text" id="nombre" name="nombre" placeholder="NOMBRE / MODELO"
 					value="<%=celu.getNombre()%>" />
 			</div>
 			<br />
@@ -87,45 +87,45 @@ charset=UTF-8"
 			</div>
 			<br />
 			<div>
-				<label for="pantalla">Pantalla del Celular</label> <input
-					class="input is-primary" type="number" placeholder="PANTALLA (In)"
+				<label for="pantallacel">Pantalla del Celular</label> <input
+					class="input is-primary" type="number" id="pantallacel" name="pantallacel" placeholder="PANTALLA (In)"
 					value="<%=celu.getPantalla()%>" />
 			</div>
 			<br />
 			<div>
-				<label for="bateria">Batería del Celular</label> <input
-					class="input is-primary" type="number" placeholder="BATERÍA (mAh)"
+				<label for="bateriacel">Batería del Celular</label> <input
+					class="input is-primary" type="number" id="bateriacel" name="bateriacel" placeholder="BATERÍA (mAh)"
 					value="<%=celu.getBateria()%>" />
 			</div>
 			<br />
 			<div>
-				<label for="so">Sistema Operativo del Celular</label> <input
-					class="input is-primary" type="text"
+				<label for="socel">Sistema Operativo del Celular</label> <input
+					class="input is-primary" type="text" id="socel" name="socel"
 					placeholder="SISTEMA OPERATIVO" value="<%=celu.getSO()%>" />
 			</div>
 			<br />
 			<div>
-				<label for="camara">Camara del Celular</label> <input
-					class="input is-primary" type="number" placeholder="CAMARA (MP)"
+				<label for="camaracel">Camara del Celular</label> <input
+					class="input is-primary" type="number" id="camaracel" name="camaracel" placeholder="CAMARA (MP)"
 					value="<%=celu.getCamara()%>" />
 			</div>
 			<br />
 			<div>
-				<label for="almacenamiento">Almacenamiento del Celular</label> <input
-					class="input is-primary" type="number"
+				<label for="almacenamientocel">Almacenamiento del Celular</label> <input
+					class="input is-primary" type="number" id="almacenamientocel" name="almacenamientocel"
 					placeholder="ALMACENAMIENTO (GB)"
 					value="<%=celu.getAlmacenamiento()%>" />
 			</div>
 			<br />
 			<div>
-				<label for="imagen">Imagen para el Celular</label> <input
-					class="input is-primary" type="text"
+				<label for="imagencel">Imagen para el Celular</label> <input
+					class="input is-primary" type="text" id="imagencel" name="imagencel"
 					placeholder="LINK DE LA IMAGEN" value="<%=celu.getImgLink()%>" />
 			</div>
 			<br />
 			<div>
-				<label for="precio">Precio del Celular</label> <input
-					class="input is-primary" type="number" placeholder="PRECIO S/."
+				<label for="preciocel">Precio del Celular</label> <input
+					class="input is-primary" type="number" id="preciocel" name="preciocel" placeholder="PRECIO S/."
 					value="<%=celu.getPrecio()%>" />
 			</div>
 			<br />

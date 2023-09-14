@@ -151,16 +151,16 @@ public class AdminController extends HttpServlet {
 		} else if ((form.equals("actualizar"))) {
 			Celular cel = new Celular();
 			cel.setID(Integer.parseInt(solicitud.getParameter("idCelular")));
-			cel.setMarca(solicitud.getParameter("Marca"));
-			cel.setNombre(solicitud.getParameter("Nombre"));
-			cel.setStock(Integer.parseInt(solicitud.getParameter("Stock")));
-			cel.setPantalla(Integer.parseInt(solicitud.getParameter("pantalla")));
-			cel.setBateria(Integer.parseInt(solicitud.getParameter("bateria")));
-			cel.setSO(solicitud.getParameter("so"));
-			cel.setCamara(Integer.parseInt(solicitud.getParameter("camara")));
-			cel.setAlmacenamiento(Integer.parseInt(solicitud.getParameter("almacenamiento")));
-			cel.setImgLink(solicitud.getParameter("imagen"));
-			cel.setPrecio(Integer.parseInt(solicitud.getParameter("precio")));
+			cel.setMarca(solicitud.getParameter("marca"));
+			cel.setNombre(solicitud.getParameter("nombre"));
+			cel.setStock(Integer.parseInt(solicitud.getParameter("stockcel")));
+			cel.setPantalla(Float.parseFloat(solicitud.getParameter("pantallacel")));
+			cel.setBateria(Float.parseFloat(solicitud.getParameter("bateriacel")));
+			cel.setSO(solicitud.getParameter("socel"));
+			cel.setCamara(Float.parseFloat(solicitud.getParameter("camaracel")));
+			cel.setAlmacenamiento(Integer.parseInt(solicitud.getParameter("almacenamientocel")));
+			cel.setImgLink(solicitud.getParameter("imagencel"));
+			cel.setPrecio(Float.parseFloat(solicitud.getParameter("preciocel")));
 			
 			celular.actualizar(cel);
 			redireccion = catalogo;

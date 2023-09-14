@@ -114,20 +114,21 @@ public class CelularDaoImplement implements CelularDao {
 	@Override
 	public void actualizar(Celular celular) {
 		try {
-			String sql= "UPDATE \"Celulares\" SET \"Marca\", \"Nombre\", \"Stock\",\"Pantalla(In)\",\"Bateria(mAh)\",\"S.O.\",\"Camara(MP)\",\"Almacenamiento(GB)\",\"img(link)\",\"Precio\" WHERE \"ID\" = ? ;";
+			String sql= "UPDATE \"Celulares\" SET \"Marca\" = ?, \"Nombre\" = ?, \"Stock\" = ?,\"Pantalla(In)\" = ?,\"Bateria(mAh)\" = ?,\"S.O.\" = ?,\"Camara(MP)\" = ?,\"Almacenamiento(GB)\" = ?,\"img(link)\" = ?,\"Precio\" = ? WHERE \"ID\" = ? ;";
 			
 			PreparedStatement ps = db.prepareStatement(sql);
-	        ps.setInt(1, celular.getID());
-	        ps.setString(2, celular.getMarca());
-	        ps.setString(3, celular.getNombre());
-	        ps.setInt(4, celular.getStock());
-	        ps.setFloat(5, celular.getPantalla());
-	        ps.setFloat(6, celular.getBateria());
-	        ps.setString(7, celular.getSO());
-	        ps.setFloat(8, celular.getCamara());
-	        ps.setInt(9, celular.getAlmacenamiento());
-	        ps.setString(10, celular.getImgLink());
-	        ps.setFloat(11, celular.getPrecio());
+	        
+	        ps.setString(1, celular.getMarca());
+	        ps.setString(2, celular.getNombre());
+	        ps.setInt(3, celular.getStock());
+	        ps.setFloat(4, celular.getPantalla());
+	        ps.setFloat(5, celular.getBateria());
+	        ps.setString(6, celular.getSO());
+	        ps.setFloat(7, celular.getCamara());
+	        ps.setInt(8, celular.getAlmacenamiento());
+	        ps.setString(9, celular.getImgLink());
+	        ps.setFloat(10, celular.getPrecio());
+	        ps.setInt(11, celular.getID());
 	        ps.executeUpdate();
 	        ps.close();
         
