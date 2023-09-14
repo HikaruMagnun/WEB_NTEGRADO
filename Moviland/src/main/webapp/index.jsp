@@ -81,7 +81,9 @@
 			</div>
 		</div>
 	</nav>
+	<div class="imagenIndex" style="align-content: center;">
+	<img alt="" src="https://www.apple.com/newsroom/images/product/app-store/Apple_App_Store_10th_anniversary_07102018_big.gif.large_2x.gif" style="margin: 0px; padding: 0px;">
+	</div>
 	
-	<img alt="" src="https://www.apple.com/newsroom/images/product/app-store/Apple_App_Store_10th_anniversary_07102018_big.gif.large_2x.gif" class="image is-5by3 mgt-small	">
 </body>
 </html>
