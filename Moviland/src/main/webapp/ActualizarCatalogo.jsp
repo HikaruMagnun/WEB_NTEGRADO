@@ -116,7 +116,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="pantalla">Pantalla del Celular</label>
           <input
             class="input is-primary"
-            type="number"
+            type="text"
             placeholder="PANTALLA (In)"
             value="<%= celu.getPantalla() %>"
           />
