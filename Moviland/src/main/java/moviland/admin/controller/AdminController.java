@@ -25,7 +25,7 @@ public class AdminController extends HttpServlet {
 	public static final String sign = "sign.jsp";
 	public static final String index = "index.jsp";
 	public static final String actualizar = "/ActualizarCatalogo.jsp";
-	HttpSession session;
+	HttpSession sesion;
 
 	public AdminController() {
 		super();
@@ -38,8 +38,8 @@ public class AdminController extends HttpServlet {
 		String utilidad = solicitud.getParameter("utilidad");
 		if (utilidad.equalsIgnoreCase("mostrar")) {
 			redireccion = catalogo;
-			session = solicitud.getSession();
-			session.setAttribute("celulares", celular.ListarCelulares());
+			sesion = solicitud.getSession();
+			sesion.setAttribute("celulares", celular.ListarCelulares());
 
 		} else if (utilidad.equalsIgnoreCase("eliminar")) {
 			// Capturar el codigo del objeto a eliminar
@@ -48,28 +48,28 @@ public class AdminController extends HttpServlet {
 			System.out.println("Eliminando " + id);
 			celular.darBaja(id);
 			redireccion = catalogo;
-			session = solicitud.getSession();
+			sesion = solicitud.getSession();
 			// productos se asocia a dao.findAll (listarTodos)
-			session.setAttribute("asignaturas", celular.ListarCelulares());
+			sesion.setAttribute("celulares", celular.ListarCelulares());
 		} else if (utilidad.equalsIgnoreCase("editar")) {
 			int id = Integer.parseInt(solicitud.getParameter("codigo"));
 			// hacer uso del método findId
 			Celular cel = celular.BuscarCelulares(id);
-			session = solicitud.getSession();
-			session.setAttribute("asignatura", cel);
+			sesion = solicitud.getSession();
+			sesion.setAttribute("celular", cel);
 			redireccion = actualizar;
 		} else if (utilidad.equalsIgnoreCase("insertar")) {
 			System.out.println("insertar");
-			session = solicitud.getSession();
+			sesion = solicitud.getSession();
 			// sesion.setAttribute("asignatura", null);
 			// redireccion = insertar;
 		} else if (utilidad.equalsIgnoreCase("listar")) {
 			System.out.println("Listar");
 			// resp.sendRedirect("hola.jsp");
 			// redireccion = listarAsignatura;
-			session = solicitud.getSession();
+			sesion = solicitud.getSession();
 			// productos se asocia a dao.findAll (listarTodos)
-			session.setAttribute("asignaturas", celular.ListarCelulares());
+			sesion.setAttribute("asignaturas", celular.ListarCelulares());
 		} else if (utilidad.equalsIgnoreCase("login")) {
 			redireccion = login;
 		} else if (utilidad.equalsIgnoreCase("sign")) {
