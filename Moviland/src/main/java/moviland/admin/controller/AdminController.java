@@ -24,7 +24,7 @@ public class AdminController extends HttpServlet {
 	public static final String login = "login.jsp";
 	public static final String sign = "sign.jsp";
 	public static final String index = "index.jsp";
-	public static final String actualizar = "/ActualizarCatalogo.jsp";
+	public static final String actualizar = "ActualizarCatalogo.jsp";
 	HttpSession sesion;
 
 	public AdminController() {
@@ -85,7 +85,7 @@ public class AdminController extends HttpServlet {
 		String form = solicitud.getParameter("form");
 		Usuario usuario = new Usuario();
 		String redireccion = "";
-		if (form.equals("login")) {
+		if (form.equalsIgnoreCase("login")) {
 			usuario.setCorreo(solicitud.getParameter("correo"));
 			usuario.setContraseña(solicitud.getParameter("password"));
 			usuario = dao.validar(usuario);
@@ -123,8 +123,12 @@ public class AdminController extends HttpServlet {
 				RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 				request.forward(solicitud, respuesta);
 			}
-		}
+		} else if ((form.equals("actualizar"))) {
 
+			redireccion = catalogo;
+			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
+			request.forward(solicitud, respuesta);
+		}
 	}
 
 }
