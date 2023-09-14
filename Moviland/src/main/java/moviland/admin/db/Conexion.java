@@ -3,14 +3,12 @@ package moviland.admin.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import javax.swing.JOptionPane;
-
 public class Conexion {
 	protected static Connection db;
-	
+
 	public static Connection conectar() {
-		
-		if(db != null) {
+
+		if (db != null) {
 			return db;
 		}
 		try {
