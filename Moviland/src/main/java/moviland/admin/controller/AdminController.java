@@ -91,7 +91,7 @@ public class AdminController extends HttpServlet {
 			usuario = dao.validar(usuario);
 			if (usuario != null) {
 				Cookie cookie = new Cookie("user", usuario.getNombre());
-				System.out.println(cookie.getAttribute("user"));
+				System.out.println(cookie.getValue());
 				redireccion = index;
 				RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 				request.forward(solicitud, respuesta);
