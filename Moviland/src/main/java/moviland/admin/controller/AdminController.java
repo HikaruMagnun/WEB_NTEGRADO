@@ -11,9 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import moviland.admin.dao.CelularDaoImplement;
-import pe.utp.dao.AsignaturaDaoImplement;
-import pe.utp.dao.IAsignaturaDao;
-import pe.utp.model.Asignatura;
+
 
 @WebServlet("/AdminController")
 
@@ -36,6 +34,25 @@ public class AdminController extends HttpServlet{
 			session = solicitud.getSession();
 			session.setAttribute("celulares", celular.ListarCelulares());
 			
+		} else if (utilidad.equalsIgnoreCase("editar")) {
+			String codigo = solicitud.getParameter("codigo");
+			// hacer uso del método findId
+			Asignatura asig = celular.buscarPorCodigo(codigo);
+			session = solicitud.getSession();
+			session.setAttribute("asignatura", asig);
+			redireccion = actualizar;
+		} else if (utilidad.equalsIgnoreCase("insertar")) {
+			System.out.println("insertar");
+			session = solicitud.getSession();
+			//sesion.setAttribute("asignatura", null); 
+			redireccion = insertar;
+		} else if (utilidad.equalsIgnoreCase("listar")) {
+			System.out.println("Listar");
+			//resp.sendRedirect("hola.jsp");
+			redireccion = listarAsignatura;
+			session = solicitud.getSession();
+			// productos se asocia a dao.findAll (listarTodos)
+			session.setAttribute("asignaturas", celular.buscarTodos());
 		}
 		RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 		request.forward(solicitud, respuesta);
