@@ -70,7 +70,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="idCelular">ID del Celular</label>
           <input
             class="input is-primary"
-            type="text"
+            type="number"
             id="idCelular"
             name="idCelular"
             placeholder="ID"
@@ -104,7 +104,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="stock">Stock del Celular</label>
           <input
             class="input is-primary"
-            type="text"
+            type="number"
             id="stock"
             name="stock"
             placeholder="STOCK"
@@ -116,9 +116,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="pantalla">Pantalla del Celular</label>
           <input
             class="input is-primary"
-            id="pantalla"
-            name="pantalla"
-            type="text"
+            type="number"
             placeholder="PANTALLA (In)"
             value="<%= celu.getPantalla() %>"
           />
@@ -128,9 +126,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="bateria">Batería del Celular</label>
           <input
             class="input is-primary"
-            id="bateria"
-            name="bateria"
-            type="text"
+            type="number"
             placeholder="BATERÍA (mAh)"
             value="<%= celu.getBateria() %>"
           />
@@ -140,8 +136,6 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="so">Sistema Operativo del Celular</label>
           <input
             class="input is-primary"
-            id="so"
-            name="so"
             type="text"
             placeholder="SISTEMA OPERATIVO"
             value="<%= celu.getSO() %>"
@@ -152,9 +146,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="camara">Camara del Celular</label>
           <input
             class="input is-primary"
-            id="camara"
-            name="camara"
-            type="text"
+            type="number"
             placeholder="CAMARA (MP)"
             value="<%= celu.getCamara() %>"
           />
@@ -164,9 +156,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="almacenamiento">Almacenamiento del Celular</label>
           <input
             class="input is-primary"
-            id="almacenamiento"
-            name="almacenamiento"
-            type="text"
+            type="number"
             placeholder="ALMACENAMIENTO (GB)"
             value="<%= celu.getAlmacenamiento() %>"
           />
@@ -176,8 +166,6 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="imagen">Imagen para el Celular</label>
           <input
             class="input is-primary"
-            id="imagen"
-            name="imagen"
             type="text"
             placeholder="LINK DE LA IMAGEN"
             value="<%= celu.getImgLink() %>"
@@ -188,8 +176,6 @@ charset=UTF-8" pageEncoding="UTF-8"%>
           <label for="precio">Precio del Celular</label>
           <input
             class="input is-primary"
-            id="precio"
-            name="precio"
             type="text"
             placeholder="PRECIO S/."
             value="<%= celu.getPrecio() %>"

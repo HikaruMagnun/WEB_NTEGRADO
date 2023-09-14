@@ -75,7 +75,7 @@ public class AdminController extends HttpServlet {
 			redireccion = login;
 		} else if (utilidad.equalsIgnoreCase("sign")) {
 			redireccion = sign;
-		}else if ((utilidad.equalsIgnoreCase("deslogear"))) {
+		} else if ((utilidad.equalsIgnoreCase("deslogear"))) {
 
 			String nombreCookie = "user";
 
@@ -83,7 +83,7 @@ public class AdminController extends HttpServlet {
 			cookieEliminar.setMaxAge(0);
 
 			respuesta.addCookie(cookieEliminar);
-			 try {
+			try {
 				Thread.sleep(1000);
 				redireccion = index;
 				RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
@@ -92,8 +92,7 @@ public class AdminController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
+
 		}
 		RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 		request.forward(solicitud, respuesta);
@@ -103,9 +102,7 @@ public class AdminController extends HttpServlet {
 			throws ServletException, IOException {
 		CelularDao celular = new CelularDaoImplement();
 		String utilidad = solicitud.getParameter("utilidad");
-		
 
-		
 		UsuarioDao dao = new UsuarioDaoImplement();
 		String form = solicitud.getParameter("form");
 		Usuario usuario = new Usuario();
@@ -163,12 +160,12 @@ public class AdminController extends HttpServlet {
 			cel.setAlmacenamiento(Integer.parseInt(solicitud.getParameter("almacenamiento")));
 			cel.setImgLink(solicitud.getParameter("imagen"));
 			cel.setPrecio(Float.parseFloat(solicitud.getParameter("precio")));
-			
-			//celular.insertarCelular(cel);
+
+			celular.actualizar(cel);
 			redireccion = catalogo;
 			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 			request.forward(solicitud, respuesta);
-		} 
+		}
 	}
 
 }
