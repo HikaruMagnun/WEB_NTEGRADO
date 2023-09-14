@@ -162,7 +162,7 @@ public class AdminController extends HttpServlet {
 			cel.setImgLink(solicitud.getParameter("imagen"));
 			cel.setPrecio(Integer.parseInt(solicitud.getParameter("precio")));
 			
-			celular.insertarCelular(cel);
+			celular.actualizar(cel);
 			redireccion = catalogo;
 			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 			request.forward(solicitud, respuesta);

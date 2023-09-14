@@ -14,6 +14,8 @@ public interface CelularDao {
 	public void editarCelular(Celular celular);
 	public Celular BuscarCelulares(int id);
 	public void darBaja(int id);
+
+	public void actualizar(Celular celular);
 	
 	
 }
