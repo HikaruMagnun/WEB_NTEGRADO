@@ -1,11 +1,12 @@
-<%@page import="moviland.admin.model.Celular" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="UTF-8"%>
+<%@ page import="moviland.admin.model.Celular"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Actualizar Productos</title>
 <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
 	rel="stylesheet">
 </head>
@@ -52,41 +53,86 @@
 			</div>
 		</div>
 	</nav>
-			<%
-				Celular celu=(Celular)request.getSession().getAttribute("celular");
-			%>
+	<%
+	Celular celu = (Celular) request.getSession().getAttribute("celular");
+	%>
+	<br>
+	<h1 class="title has-text-centered">Actualizar asignatura</h1>
+	<nav class=formulario style="margin: 5%;">
 
-	<h1 class="text-center">Actualizar asignatura</h1>
-	<form action="CursoController?accion=actualizar" method="post">
-		
-		<!--  
-		<div class="form-group">
+		<form action="AdminController?utilidad=actualizar" method="post">
 			<div>
-				<label for="codigo">Código</label>
-				<input class="form-control" type="text" id="codigo" name="codigo" value="<%=curso.getCodigo()%>" readonly>
-				<input class="form-control" type="hidden" id="codigo" name="codigo" value="<%=curso.getCodigo()%>" >
+				<label for="idCelular">ID del Celular</label> <input
+					class="input is-primary" type="text" id="idCelular"
+					name="idCelular" placeholder="ID" value="<%= celu.getID() %>"readonly>
+				<input type="hidden" name="idCelular" value="<%= celu.getID() %>">
+
 			</div>
+			<br>
 			<div>
-				<label for="nombre">Nombre</label>
-				<input class="form-control" type="text" id="nombre" name="nombre" value="<%=curso.getNombre()%>" >
+				<label for="marca">Marca del Celular</label> <input class="input is-primary"
+					type="text" placeholder="MARCA" value="<%= celu.getMarca() %>">
+
 			</div>
+			<br>
 			<div>
-				<label for="horas">Horas</label>
-				<input class="form-control" type="number" id="horas" name="horas" value="<%=curso.getHoras()%>" >
+				<label for="nombre">Nombre del Celular</label> <input class="input is-primary"
+					type="text" placeholder="NOMBRE / MODELO" value="<%= celu.getNombre() %>">
+
 			</div>
+			<br>
 			<div>
-				<label for="tipo">Tipo de curso</label>
-				<input class="form-control" type="text" id="tipo" name="tipo" value="<%=curso.getTipo()%>" >
+				<label>Stock del Celular</label> <input class="input is-primary"
+					type="text" placeholder="STOCK" value="<%= celu.getStock() %>">
+
 			</div>
+			<br>
 			<div>
-				<label for="creditos">Creditos</label>
-				<input class="form-control" type="number" id="creditos" name="creditos" value="<%=curso.getCreditos()%>" >
+				<label>Pantalla del Celular</label> <input class="input is-primary"
+					type="text" placeholder="PANTALLA (In)" value="<%= celu.getPantalla() %>">
+
 			</div>
+			<br>
 			<div>
-				<input class="btn btn-primary" type="submit" value="Actualizar">
+				<label>Batería del Celular</label> <input class="input is-primary"
+					type="text" placeholder="BATERÍA (mAh)" value="<%= celu.getBateria() %>">
+
 			</div>
-		</div>	
-		-->
-	</form>
+			<br>
+			<div>
+				<label>Sistema Operativo del Celular</label> <input
+					class="input is-primary" type="text"
+					placeholder="SISTEMA OPERATIVO" value="<%= celu.getSO() %>">
+
+			</div>
+			<br>
+			<div>
+				<label>Camara del Celular</label> <input class="input is-primary"
+					type="text" placeholder="CAMARA (MP)" value="<%= celu.getCamara() %>">
+			</div>
+			<br>
+			<div>
+				<label>Almacenamiento del Celular</label> <input
+					class="input is-primary" type="text"
+					placeholder="ALMACENAMIENTO (GB)" value="<%= celu.getAlmacenamiento() %>">
+			</div>
+			<br>
+			<div>
+				<label>Imagen para el Celular</label> <input
+					class="input is-primary" type="text"
+					placeholder="LINK DE LA IMAGEN" value="<%= celu.getImgLink() %>">
+			</div>
+			<br>
+			<div>
+				<label>Precio del Celular</label> <input class="input is-primary"
+					type="text" placeholder="PRECIO S/." value="<%= celu.getPrecio() %>">
+			</div>
+			<br>
+			<div class="buttons">
+					<button class="button is-success" type="submit">Actualizar!</button>
+				</div>
+		</form>
+	</nav>
+
 </body>
 </html>

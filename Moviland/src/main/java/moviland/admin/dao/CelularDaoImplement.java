@@ -64,6 +64,31 @@ public class CelularDaoImplement implements CelularDao {
 	public Celular BuscarCelulares(int id) {
 		// TODO Auto-generated method stub
 		Celular cel=new Celular();
+		
+		try {
+			String sql = "select * from \"Celulares\" where \"ID\" = ? ;";
+			PreparedStatement ps = db.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				cel.setID(rs.getInt("ID"));
+				cel.setMarca(rs.getString("Marca"));
+				cel.setNombre(rs.getString("Nombre"));
+				cel.setStock(rs.getInt("Stock"));
+				cel.setPantalla(rs.getFloat("Pantalla(In)"));
+				cel.setBateria(rs.getFloat("Bateria(mAh)"));
+				cel.setSO(rs.getString("S.O."));
+				cel.setCamara(rs.getFloat("Camara(MP)"));
+				cel.setAlmacenamiento(rs.getInt("Almacenamiento(GB)"));
+				cel.setImgLink(rs.getString("img(link)"));
+				cel.setPrecio(rs.getFloat("Precio"));
+			}
+		}catch (Exception e) {
+			System.err.println("Error al buscar datos mediante la ID: " + e.getMessage());
+		}
+		
 		return cel;
 	}
 	@Override
