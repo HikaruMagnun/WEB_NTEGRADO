@@ -73,7 +73,7 @@
 			<%
 			List<Celular> celulares = (List) request.getSession().getAttribute("celulares");
 			for (Celular cel : celulares) {
-			%>
+			%>s
 
 			<tr>
 				<td><%=cel.getID()%></td>

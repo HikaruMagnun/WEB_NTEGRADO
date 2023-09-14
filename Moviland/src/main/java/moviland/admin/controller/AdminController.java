@@ -38,6 +38,16 @@ public class AdminController extends HttpServlet{
 			session = solicitud.getSession();
 			session.setAttribute("celulares", celular.ListarCelulares());
 			
+		} else if (utilidad.equalsIgnoreCase("eliminar")) {
+			// Capturar el codigo del objeto a eliminar
+			int id = Integer.parseInt(solicitud.getParameter("codigo"));
+			// Hacer uso del método dar baja
+			System.out.println("Eliminando "+id);
+			celular.darBaja(id);
+			redireccion = catalogo;
+			session = solicitud.getSession();
+			// productos se asocia a dao.findAll (listarTodos)
+			session.setAttribute("asignaturas", celular.ListarCelulares());
 		} else if (utilidad.equalsIgnoreCase("editar")) {
 			int id = Integer.parseInt(solicitud.getParameter("codigo")) ;
 			// hacer uso del método findId
