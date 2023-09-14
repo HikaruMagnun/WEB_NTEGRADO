@@ -151,18 +151,20 @@ public class AdminController extends HttpServlet {
 		} else if ((form.equals("actualizar"))) {
 			Celular cel = new Celular();
 			cel.setID(Integer.parseInt(solicitud.getParameter("idCelular")));
+			System.out.println(cel.getID());
 			cel.setMarca(solicitud.getParameter("Marca"));
 			cel.setNombre(solicitud.getParameter("Nombre"));
-			cel.setStock(Integer.parseInt(solicitud.getParameter("Stock")));
-			cel.setPantalla(Integer.parseInt(solicitud.getParameter("pantalla")));
-			cel.setBateria(Integer.parseInt(solicitud.getParameter("bateria")));
+			cel.setStock(Integer.parseInt(solicitud.getParameter("stock")));
+			System.out.println(cel.getStock());
+			cel.setPantalla(Float.parseFloat(solicitud.getParameter("pantalla")));
+			cel.setBateria(Float.parseFloat(solicitud.getParameter("bateria")));
 			cel.setSO(solicitud.getParameter("so"));
-			cel.setCamara(Integer.parseInt(solicitud.getParameter("camara")));
+			cel.setCamara(Float.parseFloat(solicitud.getParameter("camara")));
 			cel.setAlmacenamiento(Integer.parseInt(solicitud.getParameter("almacenamiento")));
 			cel.setImgLink(solicitud.getParameter("imagen"));
-			cel.setPrecio(Integer.parseInt(solicitud.getParameter("precio")));
+			cel.setPrecio(Float.parseFloat(solicitud.getParameter("precio")));
 			
-			celular.insertarCelular(cel);
+			//celular.insertarCelular(cel);
 			redireccion = catalogo;
 			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 			request.forward(solicitud, respuesta);
