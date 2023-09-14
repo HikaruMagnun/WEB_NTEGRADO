@@ -1,14 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+<meta charset="UTF-8">
+ <title>Iniciar Sesion</title>
+<link href="styles.css" rel="stylesheet">
 </head>
+   
+    
 <body>
     <div class="login-container">
-        <h2>Iniciar Sesión</h2>
+        <h2>Iniciar Sesion</h2>
         <form action="procesar_login.php" method="POST">
             <div class="form-group">
                 <label for="username">Usuario:</label>
@@ -20,7 +23,7 @@
             </div>
             <button type="submit" class="login-button">Ingresar</button>
         </form>
-        <p>¿No tienes una cuenta? <a href="registro.php">Registrarse</a></p>
+        <p>No tienes una cuenta? <a href="registro.php">Registrarse</a></p>
     </div>
 </body>
 </html>

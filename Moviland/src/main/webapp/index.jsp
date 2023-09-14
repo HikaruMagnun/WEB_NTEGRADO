@@ -57,10 +57,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
+          <a class="button is-primary" href = "AdminController?utilidad=sign">
             <strong>Sign up</strong>
           </a>
-          <a class="button is-light">
+          <a class="button is-light" href = "AdminController?utilidad=login">
             Log in
           </a>
         </div>

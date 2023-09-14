@@ -17,6 +17,8 @@ import moviland.admin.dao.CelularDaoImplement;
 public class AdminController extends HttpServlet{
 	
 	public static final String catalogo = "catalogo.jsp";
+	public static final String login = "login.jsp";
+	public static final String sign = "sign.jsp";
 	HttpSession session;
 	
 	
@@ -33,6 +35,10 @@ public class AdminController extends HttpServlet{
 			session = solicitud.getSession();
 			session.setAttribute("celulares", celular.ListarCelulares());
 			
+		}else if (utilidad.equalsIgnoreCase("login")) {
+			redireccion = login;
+		}else if (utilidad.equalsIgnoreCase("sign")) {
+			redireccion = sign;
 		}
 		RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 		request.forward(solicitud, respuesta);
