@@ -132,7 +132,7 @@ public class AdminController extends HttpServlet {
 		} else if ((form.equals("sign"))) {
 			usuario.setNombre(solicitud.getParameter("nombre"));
 			usuario.setCorreo(solicitud.getParameter("email"));
-			usuario.setContraseña(solicitud.getParameter("contraseña"));
+			usuario.setContraseña(solicitud.getParameter("contrasena"));
 			usuario.setTipo_usuario("administrador");
 
 			boolean bol = dao.registrar(usuario);

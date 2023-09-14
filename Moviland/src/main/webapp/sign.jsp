@@ -20,14 +20,14 @@
           <input type="email" id="email" name="email" required />
         </div>
         <div class="form-group">
-          <label for="contraseï¿½a">Contraseï¿½a:</label>
-          <input type="password" id="contraseï¿½a" name="contraseï¿½a" required />
+          <label for="contrasena">Contraseña:</label>
+          <input type="password" id="contrasena" name="contrasena" required />
         </div>
 
         <button type="submit" class="registro-button">Registrarse</button>
       </form>
       <p>
-        ï¿½Ya tienes una cuenta?
+        Ya tienes una cuenta?
         <a href="AdminController?utilidad=login">Iniciar Sesion</a>
       </p>
     </div>
