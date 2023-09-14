@@ -62,6 +62,7 @@
 				<th><abbr title="Lost">Batería</abbr></th>
 				<th><abbr title="Goals for">S.O.</abbr></th>
 				<th><abbr title="Goals against">Camara</abbr></th>
+				<th><abbr title="Won">Almacenamiento</abbr></th>
 				<th><abbr title="Goal difference">Imagen</abbr></th>
 				<th><abbr title="Points">Precio</abbr></th>
 				<th colspan="2"><abbr>Opciones</abbr></th>
@@ -84,6 +85,7 @@
 				<td><%=cel.getBateria()%></td>
 				<td><%=cel.getSO()%></td>
 				<td><%=cel.getCamara()%></td>
+				<td><%=cel.getAlmacenamiento()%></td>
 				<td><%=cel.getImgLink()%></td>
 				<td><%=cel.getPrecio()%></td>
 				

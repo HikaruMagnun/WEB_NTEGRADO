@@ -15,10 +15,11 @@ public class CelularDaoImplement implements CelularDao {
 
 	public CelularDaoImplement() {
 		db = Conexion.conectar();
-		
+
 	}
-	@Override 
-	public List<Celular> ListarCelulares(){
+
+	@Override
+	public List<Celular> ListarCelulares() {
 		List<Celular> celulares = new ArrayList<>();
 		try {
 			String sql = "select * from \"Celulares\";";
@@ -45,33 +46,95 @@ public class CelularDaoImplement implements CelularDao {
 		}
 		return celulares;
 	}
+	
+	private String obtenerMarcaOriginal(int id) {
+	    String marcaOriginal = null;
+	    try {
+	        String sql = "SELECT \"Marca\" FROM public.\"Celulares\" WHERE \"ID\" = ? ;";
+	        PreparedStatement ps = db.prepareStatement(sql);
+	        ps.setInt(1, id);
+	        ResultSet rs = ps.executeQuery();
+	        
+	        if (rs.next()) {
+	            marcaOriginal = rs.getString("Marca");
+	        }
+	        
+	        rs.close();
+	        ps.close();
+	    } catch (Exception e) {
+	        System.out.println("Error al obtener la marca original: " + e.getMessage());
+	    }
+	    
+	    return marcaOriginal;
+	}
+
 	@Override
 	public void insertarCelular(Celular celular) {
-		// TODO Auto-generated method stub
-		
+		try {
+	        String marca = celular.getMarca();
+	        // Verificar si la marca es "Huawei" o "Samsung"
+	        if (!marca.equals("Huawei") && !marca.equals("Samsung")) {
+	            System.out.println("Marca no válida: " + marca);
+	            // Aquí puedes agregar un registro de error o realizar otra acción si lo deseas
+	        } else {
+	            // Consultar la marca actual en la base de datos
+	            String marcaOriginal = obtenerMarcaOriginal(celular.getID()); // Debes implementar esta función
+
+	            if (marcaOriginal == null) {
+	                System.out.println("No se encontró una marca original en la base de datos.");
+	                return; // Otra acción en caso necesario
+	            }
+
+	            if (!marca.equals(marcaOriginal)) {
+	                System.out.println("La marca no coincide con la marca original. Conservando la marca original: " + marcaOriginal);
+	                celular.setMarca(marcaOriginal);
+	            }
+
+	            // Continuar con la actualización de los demás datos
+	            String sql = "INSERT INTO public.\"Celulares\" (\"ID\", \"Marca\", \"Nombre\", \"Stock\",\"Pantalla(In)\",\"Bateria(mAh)\",\"S.O.\",\"Camara(MP)\",\"Almacenamiento(GB)\",\"img(link)\",\"Precio\")"
+		                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		        PreparedStatement ps = db.prepareStatement(sql);
+		        ps.setInt(1, celular.getID());
+		        ps.setString(2, celular.getMarca());
+		        ps.setString(3, celular.getNombre());
+		        ps.setInt(4, celular.getStock());
+		        ps.setFloat(5, celular.getPantalla());
+		        ps.setFloat(6, celular.getBateria());
+		        ps.setString(7, celular.getSO());
+		        ps.setFloat(8, celular.getCamara());
+		        ps.setInt(9, celular.getAlmacenamiento());
+		        ps.setString(10, celular.getImgLink());
+		        ps.setFloat(11, celular.getPrecio());
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Error al insertar los datos... " + e.getMessage());
+	    }
 	}
+
 	@Override
 	public void eliminarCelular(Celular celular) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public void editarCelular(Celular celular) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public Celular BuscarCelulares(int id) {
 		// TODO Auto-generated method stub
-		Celular cel=new Celular();
-		
+		Celular cel = new Celular();
+
 		try {
 			String sql = "select * from \"Celulares\" where \"ID\" = ? ;";
 			PreparedStatement ps = db.prepareStatement(sql);
-			
+
 			ps.setInt(1, id);
 			ResultSet rs = ps.executeQuery();
-			
+
 			while (rs.next()) {
 				cel.setID(rs.getInt("ID"));
 				cel.setMarca(rs.getString("Marca"));
@@ -85,31 +148,28 @@ public class CelularDaoImplement implements CelularDao {
 				cel.setImgLink(rs.getString("img(link)"));
 				cel.setPrecio(rs.getFloat("Precio"));
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.err.println("Error al buscar datos mediante la ID: " + e.getMessage());
 		}
-		
+
 		return cel;
 	}
+
 	@Override
 	public void darBaja(int id) {
 		// TODO Auto-generated method stub
 		try {
-	   		 String sql="DELETE FROM \"Celulares\" WHERE \"ID\" = ? ;";
-	   		 //Preparar para procesar la sentencia sql
-	   		 PreparedStatement ps = db.prepareStatement(sql);
+			String sql = "DELETE FROM \"Celulares\" WHERE \"ID\" = ? ;";
+			// Preparar para procesar la sentencia sql
+			PreparedStatement ps = db.prepareStatement(sql);
 
-	   		 ps.setInt(1,id);
-	   		 //Ejecutar la sentencia sql
-	   		 ps.executeUpdate();
-	   		 ps.close();
-	   	 } catch (Exception e) {
-	   		 System.err.println("Error al eliminar datos: "+e.getMessage());
-	   	 }
+			ps.setInt(1, id);
+			// Ejecutar la sentencia sql
+			ps.executeUpdate();
+			ps.close();
+		} catch (Exception e) {
+			System.err.println("Error al eliminar datos: " + e.getMessage());
+		}
 	}
 
 }
-	
-	
-	
-

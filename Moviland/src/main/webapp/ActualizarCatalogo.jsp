@@ -101,17 +101,19 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <br />
         <div>
-          <label>Stock del Celular</label>
+          <label for="stock">Stock del Celular</label>
           <input
             class="input is-primary"
             type="text"
+            id="stock"
+            name="stock"
             placeholder="STOCK"
             value="<%= celu.getStock() %>"
           />
         </div>
         <br />
         <div>
-          <label>Pantalla del Celular</label>
+          <label for="pantalla">Pantalla del Celular</label>
           <input
             class="input is-primary"
             type="text"
@@ -121,7 +123,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <br />
         <div>
-          <label>Batería del Celular</label>
+          <label for="bateria">Batería del Celular</label>
           <input
             class="input is-primary"
             type="text"
@@ -131,7 +133,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <br />
         <div>
-          <label>Sistema Operativo del Celular</label>
+          <label for="so">Sistema Operativo del Celular</label>
           <input
             class="input is-primary"
             type="text"
@@ -141,7 +143,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <br />
         <div>
-          <label>Camara del Celular</label>
+          <label for="camara">Camara del Celular</label>
           <input
             class="input is-primary"
             type="text"
@@ -151,7 +153,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <br />
         <div>
-          <label>Almacenamiento del Celular</label>
+          <label for="almacenamiento">Almacenamiento del Celular</label>
           <input
             class="input is-primary"
             type="text"
@@ -161,7 +163,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <br />
         <div>
-          <label>Imagen para el Celular</label>
+          <label for="imagen">Imagen para el Celular</label>
           <input
             class="input is-primary"
             type="text"
@@ -171,7 +173,7 @@ charset=UTF-8" pageEncoding="UTF-8"%>
         </div>
         <br />
         <div>
-          <label>Precio del Celular</label>
+          <label for="precio">Precio del Celular</label>
           <input
             class="input is-primary"
             type="text"

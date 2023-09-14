@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import moviland.admin.dao.CelularDaoImplement;
+import moviland.admin.dao.CelularDao;
 import moviland.admin.model.Celular;
 import moviland.admin.dao.UsuarioDao;
 import moviland.admin.dao.UsuarioDaoImplement;
@@ -81,6 +82,11 @@ public class AdminController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest solicitud, HttpServletResponse respuesta)
 			throws ServletException, IOException {
+		CelularDao celular = new CelularDaoImplement();
+		String utilidad = solicitud.getParameter("utilidad");
+		
+
+		
 		UsuarioDao dao = new UsuarioDaoImplement();
 		String form = solicitud.getParameter("form");
 		Usuario usuario = new Usuario();
@@ -124,7 +130,20 @@ public class AdminController extends HttpServlet {
 				request.forward(solicitud, respuesta);
 			}
 		} else if ((form.equals("actualizar"))) {
-
+			Celular cel = new Celular();
+			cel.setID(Integer.parseInt(solicitud.getParameter("idCelular")));
+			cel.setMarca(solicitud.getParameter("Marca"));
+			cel.setNombre(solicitud.getParameter("Nombre"));
+			cel.setStock(Integer.parseInt(solicitud.getParameter("Stock")));
+			cel.setPantalla(Integer.parseInt(solicitud.getParameter("pantalla")));
+			cel.setBateria(Integer.parseInt(solicitud.getParameter("bateria")));
+			cel.setSO(solicitud.getParameter("so"));
+			cel.setCamara(Integer.parseInt(solicitud.getParameter("camara")));
+			cel.setAlmacenamiento(Integer.parseInt(solicitud.getParameter("almacenamiento")));
+			cel.setImgLink(solicitud.getParameter("imagen"));
+			cel.setPrecio(Integer.parseInt(solicitud.getParameter("precio")));
+			
+			celular.insertarCelular(cel);
 			redireccion = catalogo;
 			RequestDispatcher request = solicitud.getRequestDispatcher(redireccion);
 			request.forward(solicitud, respuesta);
