@@ -12,7 +12,7 @@ public interface CelularDao {
 	public void insertarCelular(Celular celular);
 	public void eliminarCelular(Celular celular);
 	public void editarCelular(Celular celular);
-	public Celular BuscarCelulares();
+	public Celular BuscarCelulares(int id);
 	
 	
 }

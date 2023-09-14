@@ -60,9 +60,10 @@ public class CelularDaoImplement implements CelularDao {
 		
 	}
 	@Override
-	public Celular BuscarCelulares() {
+	public Celular BuscarCelulares(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Celular celucode=new Celular();
+		return celucode;
 	}
 	
 	

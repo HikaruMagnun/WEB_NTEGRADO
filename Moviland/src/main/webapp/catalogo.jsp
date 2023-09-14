@@ -86,8 +86,9 @@
 				<td><%=cel.getCamara()%></td>
 				<td><%=cel.getImgLink()%></td>
 				<td><%=cel.getPrecio()%></td>
-				<td><a class="btn btn-success" href="CursoController?accion=editar&codigo=<%=asig.getCodigo()%>">Editar</a></td>
-   				<td><a class="btn btn-danger" href="CursoController?accion=eliminar&codigo=<%=asig.getCodigo()%>">Eliminar</a></td>
+				
+				<td><a class="btn btn-success" href="AdminController?utilidad=editar&codigo=<%=cel.getID()%>">Editar</a></td>
+   				<td><a class="btn btn-danger" href="AdminController?utilidad=eliminar&codigo=<%=cel.getID()%>">Eliminar</a></td>
 			</tr>
 			<% } %>
 		</tbody>

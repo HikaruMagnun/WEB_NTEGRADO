@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import moviland.admin.dao.CelularDaoImplement;
+import moviland.admin.model.Celular;
 
 
 @WebServlet("/AdminController")
@@ -20,6 +21,7 @@ public class AdminController extends HttpServlet{
 	public static final String catalogo = "catalogo.jsp";
 	public static final String login = "login.jsp";
 	public static final String sign = "sign.jsp";
+	public static final String actualizar = "/actualizarAsignatura.jsp";
 	HttpSession session;
 	
 	
@@ -37,24 +39,24 @@ public class AdminController extends HttpServlet{
 			session.setAttribute("celulares", celular.ListarCelulares());
 			
 		} else if (utilidad.equalsIgnoreCase("editar")) {
-			String codigo = solicitud.getParameter("codigo");
+			int id = Integer.parseInt(solicitud.getParameter("codigo")) ;
 			// hacer uso del método findId
-			Asignatura asig = celular.buscarPorCodigo(codigo);
+			Celular cel = celular.BuscarCelulares(id);
 			session = solicitud.getSession();
-			session.setAttribute("asignatura", asig);
+			session.setAttribute("asignatura", cel);
 			redireccion = actualizar;
 		} else if (utilidad.equalsIgnoreCase("insertar")) {
 			System.out.println("insertar");
 			session = solicitud.getSession();
 			//sesion.setAttribute("asignatura", null); 
-			redireccion = insertar;
+			// redireccion = insertar;
 		} else if (utilidad.equalsIgnoreCase("listar")) {
 			System.out.println("Listar");
 			//resp.sendRedirect("hola.jsp");
-			redireccion = listarAsignatura;
+			// redireccion = listarAsignatura;
 			session = solicitud.getSession();
 			// productos se asocia a dao.findAll (listarTodos)
-			session.setAttribute("asignaturas", celular.buscarTodos());
+			session.setAttribute("asignaturas", celular.ListarCelulares());
 		} else if (utilidad.equalsIgnoreCase("login")) {
 			redireccion = login;
 		}else if (utilidad.equalsIgnoreCase("sign")) {
@@ -69,7 +71,7 @@ public class AdminController extends HttpServlet{
 		// String accion = req.getParameter("accion");
 		// Crear una instancia de la clase producto
 		// Asignatura asig = new Asignatura();
-		//asig.setCodigo(req.getParameter("codigo"));
+		// asig.setCodigo(req.getParameter("codigo"));
 		// asig.setNombre(req.getParameter("nombre"));
 		// asig.setHoras(Integer.parseInt(req.getParameter("horas")));
 		// asig.setTipo(req.getParameter("tipo"));
