@@ -9,27 +9,21 @@
 <body>
     <div class="registro-container">
         <h2>Registrarse</h2>
-        <form action="procesar_registro.php" method="POST">
+        <form method="POST" action="AdminController?form=sign">
             <div class="form-group">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
             </div>
+          
             <div class="form-group">
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Correo ElectrÃ³nico:</label>
+                <label for="email">Correo Electronico:</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
-                <label for="usuario">Usuario:</label>
-                <input type="text" id="usuario" name="usuario" required>
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña" name="contraseña" required>
             </div>
-            <div class="form-group">
-                <label for="contrasena">ContraseÃ±a:</label>
-                <input type="password" id="contrasena" name="contrasena" required>
-            </div>
+             
             <button type="submit" class="registro-button">Registrarse</button>
         </form>
         <p>Â¿Ya tienes una cuenta? <a href="login.php">Iniciar Sesion</a></p>
