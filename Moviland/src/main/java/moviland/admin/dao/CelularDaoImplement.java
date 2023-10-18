@@ -19,6 +19,7 @@ public class CelularDaoImplement implements CelularDao {
 	}
 
 	@Override
+	
 	public List<Celular> ListarCelulares() {
 		List<Celular> celulares = new ArrayList<>();
 		try {

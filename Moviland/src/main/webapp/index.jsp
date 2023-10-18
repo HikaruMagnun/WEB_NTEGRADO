@@ -62,8 +62,8 @@
 						<%=usuario%></h1>
 					&nbsp;&nbsp;&nbsp;
 					<div class="buttons">
-						</a> <a class="button is-light" href="AdminController?utilidad=deslogear">
-							Cerrar Sesion </a>
+						</a> <a class="button is-light"
+							href="AdminController?utilidad=deslogear"> Cerrar Sesion </a>
 					</div>
 					<%
 					} else {
@@ -82,8 +82,17 @@
 		</div>
 	</nav>
 	<div class="imagenIndex" style="align-content: center;">
-	<img alt="" src="https://www.apple.com/newsroom/images/product/app-store/Apple_App_Store_10th_anniversary_07102018_big.gif.large_2x.gif" style="margin: 0px; padding: 0px;">
+		<img alt=""
+			src="https://www.apple.com/newsroom/images/product/app-store/Apple_App_Store_10th_anniversary_07102018_big.gif.large_2x.gif"
+			style="margin: 0px; padding: 0px;">
 	</div>
-	
+	<footer class="footer has-background-dark">
+		<div class="content has-text-centered has-text-info-light is-size-5">
+			<p>
+				<strong class="has-text-info-light">Moviland</strong> hecho por <a class="has-text-info" href="https://www.canva.com/design/DAFueJ22rE4/pdUR3ikvCOglKoxoJauUNQ/edit?utm_content=DAFueJ22rE4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Grupo 1</a>. Proyecto diseñado para la venta de celulares. <a  class="has-text-info" 
+					href="https://www.wipo.int/copyright/es/">&copy; 2023 Grupo 1</a>
+			</p>
+		</div>
+	</footer>
 </body>
 </html>
